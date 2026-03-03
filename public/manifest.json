@@ -1,25 +1,26 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Abhishek Yadav",
+  "name": "Abhishek Yadav - Full Stack Developer | MERN Stack Specialist",
+  "description": "Portfolio of Abhishek Yadav, Full Stack Developer specializing in MERN Stack, React.js, Node.js, and MongoDB",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "abhi.png",
       "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "type": "image/png"
     },
     {
-      "src": "logo192.png",
+      "src": "abhi.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "abhi.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#6e45e2",
+  "background_color": "#0a192f"
 }

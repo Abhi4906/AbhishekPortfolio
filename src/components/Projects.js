@@ -6,6 +6,9 @@ import '../App.css';
 import devImage from '../assets/dev.jpg';
 import ssImage from '../assets/ss.png';
 import emsImage from '../assets/ems.png';
+import ramkusImage from '../assets/ram.png'; // Add this image
+import citybusImage from '../assets/bus.png'; // Add this image
+import figmaImage from '../assets/fig.png'; // Add this image
 
 const projects = [
   {
@@ -31,6 +34,30 @@ const projects = [
     githubLink: 'https://github.com/Abhi4906',
     liveLink: 'https://ems.shiwansh.com',
     screenshots: [emsImage]
+  },
+  {
+    title: 'Ramkus Dairy',
+    description: 'E-commerce platform for dairy products with online ordering and delivery tracking. Features product catalog, cart management, and secure payments.',
+    technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+    githubLink: 'https://github.com/Abhi4906/ramkus-dairy',
+    liveLink: 'https://ramkus-dairy.example.com',
+    screenshots: [ramkusImage]
+  },
+  {
+    title: 'CityBusRide',
+    description: 'Complete bus booking system with real-time seat availability, route planning, and online ticket booking. Includes admin dashboard for fleet management.',
+    technologies: ['MongoDB', 'Express.js', 'React', 'Node.js', 'Socket.io'],
+    githubLink: 'https://github.com/Abhi4906/citybusride',
+    liveLink: 'https://citybusride.example.com',
+    screenshots: [citybusImage]
+  },
+  {
+    title: 'FigmaLand',
+    description: 'Pixel-perfect implementation of a Figma design with responsive layouts, animations, and interactive components. Showcases modern React development.',
+    technologies: ['React', 'Framer Motion', 'SCSS', 'Responsive Design'],
+    githubLink: 'https://github.com/Abhi4906/figmaland',
+    liveLink: 'https://figmaland.example.com',
+    screenshots: [figmaImage]
   }
 ];
 
@@ -75,10 +102,6 @@ const screenshotHover = {
   }
 };
 
-
-
-// ... (keep all your existing variants: containerVariants, itemVariants, cardHover, screenshotHover)
-
 const Projects = () => {
   const [activeScreenshot, setActiveScreenshot] = React.useState(0);
   const [activeProject, setActiveProject] = React.useState(null);
@@ -106,7 +129,16 @@ const Projects = () => {
       variants={containerVariants}
     >
       <div className="container">
-        {/* ... (keep your existing header code) */}
+        <motion.div 
+          className="section-header text-center mb-5"
+          variants={itemVariants}
+        >
+          <h2 className="display-5 fw-bold">My Projects</h2>
+          <div className="divider"></div>
+          <p className="lead text-muted">
+            Here are some of my recent works
+          </p>
+        </motion.div>
 
         <div className="row g-4">
           {projects.map((project, index) => (
@@ -216,7 +248,10 @@ const Projects = () => {
                     )}
                     <motion.button
                       className="screenshots-btn btn btn-outline-secondary"
-                      onClick={() => setActiveProject(index)}
+                      onClick={() => {
+                        setActiveProject(index);
+                        setActiveScreenshot(0);
+                      }}
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                     >
@@ -237,7 +272,10 @@ const Projects = () => {
           <div className="modal-content">
             <button 
               className="close-modal"
-              onClick={() => setActiveProject(null)}
+              onClick={() => {
+                setActiveProject(null);
+                setActiveScreenshot(0);
+              }}
             >
               &times;
             </button>

@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import '../App.css';
 
 // Direct imports with fallbacks
-import resumePDF from '../assets/resume.pdf';
+import resumePDF from '../assets/abhishekyadavresume.pdf';
 import profileImg from '../assets/aa.jpg'; // Changed from aa.jpg to profile.jpg based on your screenshot
 
 // Fallback images
@@ -87,6 +87,8 @@ const Home = () => {
               'Full-Stack Developer',
               2000,
               'React.js Specialist',
+              2000,
+              'Mern Full-Stack Developer',
               2000,
               '.NET Core Developer',
               2000,

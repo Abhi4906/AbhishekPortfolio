@@ -8,6 +8,7 @@ function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [expanded, setExpanded] = useState(false); // Add state for navbar expansion
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,6 +41,11 @@ function Header() {
     document.body.classList.toggle('dark-mode');
   };
 
+  const handleNavClick = (section) => {
+    setActiveSection(section);
+    setExpanded(false); // Close the navbar when a link is clicked
+  };
+
   const navItems = ['home', 'about', 'summary', 'experience', 'educations', 'projects', 'skills', 'certification', 'contact'];
 
   return (
@@ -51,6 +57,8 @@ function Header() {
       <Navbar 
         expand="lg" 
         fixed="top" 
+        expanded={expanded} // Control expanded state
+        onToggle={(expanded) => setExpanded(expanded)} // Handle toggle
         className={`custom-navbar ${scrolled ? 'scrolled' : ''} ${darkMode ? 'dark' : ''}`}
       >
         <Container fluid>
@@ -61,7 +69,7 @@ function Header() {
             <Navbar.Brand 
               href="#home" 
               className="fw-bold brand-text"
-              onClick={() => setActiveSection('home')}
+              onClick={() => handleNavClick('home')}
             >
               <motion.div
                 animate={{ rotate: 360 }}
@@ -86,9 +94,10 @@ function Header() {
           <Navbar.Toggle 
             aria-controls="navbar-nav" 
             className="border-0"
+            onClick={() => setExpanded(!expanded)} // Toggle expanded state
           >
             <motion.div
-              animate={{ rotate: 180 }}
+              animate={{ rotate: expanded ? 180 : 0 }}
               transition={{ duration: 0.3 }}
             >
               ☰
@@ -106,7 +115,7 @@ function Header() {
                   <Nav.Link
                     href={`#${section}`}
                     className={`nav-link-custom ${activeSection === section ? 'active' : ''}`}
-                    onClick={() => setActiveSection(section)}
+                    onClick={() => handleNavClick(section)}
                   >
                     {section.charAt(0).toUpperCase() + section.slice(1)}
                     {activeSection === section && (
